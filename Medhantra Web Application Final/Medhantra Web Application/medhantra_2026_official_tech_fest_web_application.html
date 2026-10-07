@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MEDHANTRA 2026 – S-VYASA Inter-Collegiate Tech Fest</title>
+  
+  <!-- Google Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+
+  <style>
+    :root {
+      --bg-dark: #000000;
+      --bg-card: #000000;
+      --navy-primary:#121c2f;
+      --navy-light: #121c2f;
+      --gold-accent: #a08d0d;
+      --gold-deep: #d4af37;
+      --cyan-bright: #00f2fe;
+      --cyan-dark: #4facfe;
+      --cream-bg: #121c2f;
+      --text-light: #e6f1ff;
+      --text-muted: #8892b0;
+      --text-dark: #1e293b;
+      --border-color: rgba(153, 120, 11, 0.25);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .English-tagline{
+      font-size: 40px;
+      font-style: italic;
+      
+    }
+
+    /* Container Utility */
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Typography */
+    h1, h2, h3, h4, .brand-font {
+      font-family: 'Cinzel', serif;
+    }
+
+    /* Header & Navigation */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(6, 13, 26, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      z-index: 1000;
+      padding: 12px 0;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .brand-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--gold-accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold-accent);
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold-accent), var(--gold-deep));
+      color: #000;
+      font-weight: 700;
+      padding: 10px 22px;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+    }
+
+    /* Official Medhantra Logo Crest */
+    .crest-container {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 15px auto;
+      position: relative;
+    }
+
+    .hero-title-shimmer {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2.8rem, 6.5vw, 5.2rem);
+      font-weight: 900;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      background: linear-gradient(110deg, #bf953f 0%, #fcf6ba 25%, #b38728 45%, #ffffff 50%, #fbf5b7 55%, #aa771c 75%, #bf953f 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shine 6s linear infinite;
+      filter: drop-shadow(0 4px 15px rgba(191, 149, 63, 0.35));
+    }
+
+    @keyframes shine {
+      to { background-position: 200% center; }
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 160px 0 90px 0;
+      text-align: center;
+      background: radial-gradient(circle at 50%   80%, rgba(30, 69, 212, 0.8) 0%, var(--bg-dark) 50%);
+      position:static;
+    }
+    
+
+    .university-hdr {
+      color: var(--gold-accent);
+      font-size: 3rem;
+      letter-spacing: 2px;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+    }
+
+    .sanskrit-tagline {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: #fff;
+      margin: 10px 0 5px 0;
+    }
+
+    .english-tagline {
+      font-size: 1rem;
+      color:#ebf3ff
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 25px;
+    }
+
+    .hero-pills {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin: 25px 0 35px 0;
+    }
+
+    .pill {
+      background: rgba(17, 34, 64, 0.8);
+      border: 1px solid var(--border-color);
+      padding: 8px 18px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* S-Vyasa Logo */
+    
+    .brand-header {
+    display: flex;          /* Aligns items side-by-side horizontally */
+    align-items: center;    /* Vertically centers logo and text */
+    gap: 12px;              /* Space between the logo and text */
+  }
+
+  .brand-logo {
+    height: 50px;           /* Adjust logo height to match your header size */
+    width: auto;            /* Maintains aspect ratio */
+    object-fit: contain;
+  }
+
+  .brand-name {
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #1a365d;         /* Change color as needed */
+  }
+
+    /* Countdown */
+    .countdown-timer {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 30px 0;
+    }
+
+    .time-box {
+      background: var(--navy-light);
+      border: 1px solid var(--border-color);
+      padding: 15px 20px;
+      border-radius: 8px;
+      min-width: 80px;
+    }
+
+    .time-box .num {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--gold-accent);
+    }
+
+    .time-box .label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    /* Section Headers */
+    .section-title {
+      text-align: center;
+      font-size: 2.2rem;
+      color: var(--gold-accent);
+      margin-bottom: 10px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--text-muted);
+      margin-bottom: 45px;
+    }
+
+    /* Events Section */
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 25px;
+      margin-bottom: 60px;
+    }
+
+    .event-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      border-radius: 10px;
+      padding: 25px;
+      transition: transform 0.3s, border-color 0.3s;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .event-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--gold-accent);
+    }
+
+    .event-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: rgba(0, 242, 254, 0.15);
+      color: var(--cyan-bright);
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .event-fee {
+      font-weight: 700;
+      color: var(--gold-accent);
+      margin-top: 8px;
+    }
+
+    .prize-tag {
+      color: var(--cyan-bright);
+      font-size: 0.85rem;
+    }
+
+    .event-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .btn-outline {
+      border: 1px solid var(--border-color);
+      background: transparent;
+      color: var(--text-light);
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 2rem;
+      flex: 1;
+      text-align: center;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--gold-accent);
+      color: var(--gold-accent);
+    }
+
+    /* Form Styling */
+    .form-container {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 35px;
+      max-width: 750px;
+      margin: 0 auto 60px auto;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px 15px;
+      background: var(--navy-primary);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 6px;
+      color: #fff;
+      font-size: 0.95rem;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--gold-accent);
+    }
+
+    .teammates-box {
+      background: rgba(17, 34, 64, 0.5);
+      border: 1px dashed var(--border-color);
+      padding: 18px;
+      border-radius: 8px;
+      margin-top: 15px;
+    }
+
+    /* Modal Styling */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(5px);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      background: var(--bg-card);
+      border: 1px solid var(--gold-accent);
+      border-radius: 12px;
+      padding: 30px;
+      width: 90%;
+      max-width: 550px;
+      max-height: 85vh;
+      overflow-y: auto;
+      position: relative;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 1.2rem;
+    }
+
+    /* Vertical Timeline Container */
+.timeline-v-container {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+/* Central/Left Glowing Vertical Line */
+.timeline-v-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 140px; /* Position of the vertical line */
+  width: 3px;
+  background: linear-gradient(180deg, #ffd700 0%, #00f2fe 50%, #ffd700 100%);
+  box-shadow: 0 0 10px rgba(0, 242, 254, 0.4);
+}
+
+/* Individual Timeline Row */
+.timeline-v-item {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 35px;
+}
+
+/* Time Badge (Left of the line) */
+.timeline-v-time {
+  width: 130px;
+  text-align: right;
+  padding-right: 25px;
+  font-weight: 700;
+  color: #ffd700;
+  font-size: 0.95rem;
+  line-height: 1.3;
+  flex-shrink: 0;
+}
+
+/* Node Dot on the Line */
+.timeline-v-dot {
+  position: absolute;
+  left: 134px; /* Center of the line */
+  top: 5px;
+  width: 15px;
+  height: 15px;
+  background: #060d1a;
+  border: 3px solid #00f2fe;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #00f2fe;
+  z-index: 2;
+}
+
+/* Event Details Card (Right of the line) */
+.timeline-v-content {
+  flex-grow: 1;
+  margin-left: 35px;
+  background: #0c182e;
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 8px;
+  padding: 18px 22px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.timeline-v-content h4 {
+  color: #ffffff;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.timeline-v-events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.timeline-event-subcard {
+  background: rgba(17, 34, 64, 0.6);
+  border-left: 3px solid #00f2fe;
+  padding: 8px 12px;
+  border-radius: 4px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+  .timeline-v-container::before {
+    left: 20px;
+  }
+  .timeline-v-item {
+    flex-direction: column;
+  }
+  .timeline-v-time {
+    width: 100%;
+    text-align: left;
+    padding-left: 45px;
+    margin-bottom: 8px;
+  }
+  .timeline-v-dot {
+    left: 14px;
+    top: 2px;
+  }
+  .timeline-v-content {
+    margin-left: 45px;
+    width: calc(100% - 45px);
+  }
+}
+
+/* Coordinator Card Styling */
+.coordinator-card {
+  background: #0c182e;
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 10px;
+  padding: 25px 20px;
+  text-align: center;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.coordinator-card:hover {
+  transform: translateY(-5px);
+  border-color: #ffd700;
+}
+
+.coord-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(0, 242, 254, 0.1);
+  border: 2px solid #00f2fe;
+  color: #00f2fe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.coord-badge {
+  background: rgba(0, 242, 254, 0.15);
+  color: #00f2fe;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.coord-name {
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.coord-role {
+  color: #ffd700;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.coord-dept {
+  color: #8892b0;
+  font-size: 0.8rem;
+  margin-bottom: 15px;
+}
+
+.coord-contact-info {
+  width: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.coord-link {
+  color: #e6f1ff;
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.coord-link:hover {
+  color: #00f2fe;
+}
+
+/*button for view brochure*/
+.brochure-btn {
+      background: linear-gradient(135deg, var(--gold-accent), var(--gold-deep));
+      color: #000;
+      font-weight: 700;
+      padding: 10px 22px;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+    }
+
+
+/* Container for split-letter animation */
+.hero-title-explode {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(4rem, 6.5vw, 5.2rem);
+  font-weight: 900;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 15px 0;
+  perspective: 1000px;
+}
+
+/* Base Letter Styling with Metallic Gold & Cyan Shimmer */
+.hero-title-explode .char {
+  display: inline-block;
+  background: linear-gradient(110deg, #bf953f 0%, #fcf6ba 25%, #b38728 45%, #ffffff 50%, #fbf5b7 55%, #aa771c 75%, #bf953f 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 4px 15px rgba(191, 149, 63, 0.4));
+  animation: explodeJoin 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards, shine 6s linear infinite;
+  opacity: 0;
+}
+
+/* Keyframes: Fly-in from different directions and bang together */
+@keyframes explodeJoin {
+  0% {
+    opacity: 0;
+    transform: translate3d(var(--tx), var(--ty), var(--tz)) rotate(var(--rot)) scale(2.5);
+    filter: blur(12px) drop-shadow(0 0 30px #00f2fe);
+  }
+  70% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1.15);
+    filter: blur(0px) drop-shadow(0 0 25px #ffd700);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+    filter: drop-shadow(0 4px 15px rgba(191, 149, 63, 0.4));
+  }
+}
+
+/* Shimmer Reflection Loop */
+@keyframes shine {
+  to { background-position: 200% center; }
+}
+
+    .table-responsive {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+      font-size: 0.88rem;
+    }
+
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    th {
+      background: var(--navy-primary);
+      color: var(--gold-accent);
+    }
+
+    .badge-paid {
+      background: rgba(46, 213, 115, 0.15);
+      color: #2ed573;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+    }
+
+   .logo-container {
+  /* Dimensions: 3 inches width by 2 inches height */
+  width: 3in;
+  height: 2in;
+
+  /* Centering the container horizontally on the page */
+  margin: 0 auto;
+
+  /* Centering the image inside the container */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Ensures the logo image scales smoothly inside the container */
+.logo-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+  .remove-white-bg {
+    
+    filter: contrast(110%);   /* Optional: sharpens edges slightly */
+  }
+
+  /* Container positioned to the far left with a small gap */
+.university-hdr {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Aligns both logo and text to the dead left */
+  gap: 12px;                  /* Controls exact spacing between logo and text */
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+/* S-VYASA Logo sizing */
+.university-hdr .brand-logo {
+  height: clamp(70px, 9vw, 100px); /* Large size */
+  width: auto;
+  object-fit: contain;
+  margin-right: 10;                 /* Removes extra auto spacing */
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+}
+
+/* University Name Text */
+.university-hdr span {
+  font-size: clamp(3rem, 2.5vw, 1.8rem);
+  font-weight: 700;
+  color: #ffffff;
+}
+    footer {
+      background: #030712;
+      border-top: 1px solid var(--border-color);
+      padding: 40px 0 20px 0;
+      margin-top: 80px;
+      text-align: center;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .admin-layout { flex-direction: column; }
+      .admin-sidebar { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <div class="container nav-container">
+      <a href="#" class="brand-logo">
+        <span class="brand-title">MEDHANTRA 2026</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#register">Register</a></li>
+        </ul>
+      <a href="assets\Medhantra_Event_Brochure.pdf" target="_blank" class="brochure-btn" > View Brochure</a>
+    </div>
+    
+  </header>
+
+  <!-- Hero Section -->
+<section id="home" class="hero">
+  <div class="container">
+    
+    <!-- Top Logos Header -->
+    <div class="university-hdr">
+      <img src="assets/SVYASA LOGO.png" alt="S-VYASA Logo" class="brand-logo" />
+      <span>S-VYASA Deemed to be University</span>
+      <img src="assets/S-TECSA LOGO.png" alt="S-TECSA Logo" class="brand-logo" />
+    </div>
+
+    <p class="sub-hdr-text">
+      <span>School of Computer Science & Applications | S-TECSA</span>
+    </p>
+    
+    <!-- Official Medhantra Logo Image -->
+    <div class="logo-container">
+      <img src="assets/Medhantra.png" alt="Medhantra Logo" class="remove-white-bg" />
+    </div>
+
+    <!-- Exploding Title -->
+    <h1 class="hero-title-explode">
+      <!-- M: flies from top-left -->
+      <span class="char" style="--tx: -300px; --ty: -250px; --tz: 500px; --rot: -120deg; animation-delay: 0.1s;">M</span>
+      <!-- E: flies from top-right -->
+      <span class="char" style="--tx: 250px; --ty: -300px; --tz: 300px; --rot: 90deg; animation-delay: 0.15s;">E</span>
+      <!-- D: flies from bottom-left -->
+      <span class="char" style="--tx: -350px; --ty: 200px; --tz: 400px; --rot: -180deg; animation-delay: 0.2s;">D</span>
+      <!-- H: flies straight from top -->
+      <span class="char" style="--tx: 0px; --ty: -400px; --tz: 200px; --rot: 45deg; animation-delay: 0.25s;">H</span>
+      <!-- A: flies from bottom-right -->
+      <span class="char" style="--tx: 300px; --ty: 350px; --tz: 600px; --rot: -90deg; animation-delay: 0.3s;">A</span>
+      <!-- N: flies from left -->
+      <span class="char" style="--tx: -450px; --ty: 50px; --tz: 100px; --rot: 135deg; animation-delay: 0.35s;">N</span>
+      <!-- T: flies from right -->
+      <span class="char" style="--tx: 400px; --ty: -100px; --tz: 350px; --rot: -60deg; animation-delay: 0.4s;">T</span>
+      <!-- R: flies from bottom -->
+      <span class="char" style="--tx: -50px; --ty: 400px; --tz: 250px; --rot: 180deg; animation-delay: 0.45s;">R</span>
+      <!-- A: flies from far top-right -->
+      <span class="char" style="--tx: 350px; --ty: -250px; --tz: 450px; --rot: -140deg; animation-delay: 0.5s;">A</span>
+      
+      <!-- Space between word and year -->
+      <span style="width: 20px;"></span>
+
+      <!-- 2026 Assembly -->
+      <span class="char" style="--tx: -200px; --ty: 300px; --tz: 500px; --rot: 90deg; animation-delay: 0.6s; color: #00f2fe;">2</span>
+      <span class="char" style="--tx: 0px; --ty: -350px; --tz: 300px; --rot: -120deg; animation-delay: 0.65s; color: #00f2fe;">0</span>
+      <span class="char" style="--tx: 250px; --ty: 300px; --tz: 400px; --rot: 150deg; animation-delay: 0.7s; color: #00f2fe;">2</span>
+      <span class="char" style="--tx: 350px; --ty: -200px; --tz: 600px; --rot: -180deg; animation-delay: 0.75s; color: #00f2fe;">6</span>
+    </h1>
+
+    <div class="English-tagline"> - Aim Beyond the Horizon</div>
+
+
+    <div class="sanskrit-tagline">प्रज्ञा से प्रौद्योगिकी तक</div>
+    <div class="english-tagline">From Wisdom to Technology </div>
+
+    <div class="hero-pills">
+      <div class="pill"><i class="fa-solid fa-calendar-day" style="color:var(--gold-accent)"></i> 16 October 2026</div>
+      <div class="pill"><i class="fa-solid fa-location-dot" style="color:var(--cyan-bright)"></i> Sattva Global City Campus, Bengaluru</div>
+      <div class="pill"><i class="fa-solid fa-trophy" style="color:var(--gold-accent)"></i> ₹30,000+ Prize Pool</div>
+    </div>
+
+    <div class="countdown-timer">
+      <div class="time-box"><div class="num" id="days">00</div><div class="label">Days</div></div>
+      <div class="time-box"><div class="num" id="hours">00</div><div class="label">Hours</div></div>
+      <div class="time-box"><div class="num" id="mins">00</div><div class="label">Minutes</div></div>
+      <div class="time-box"><div class="num" id="secs">00</div><div class="label">Seconds</div></div>
+    </div>
+
+    <div style="margin-top: 30px; display: flex; gap: 15px; justify-content: center;">
+      <a href="#register" class="btn-gold"><i class="fa-solid fa-pen-to-square"></i> Register Now</a>
+      <a href="#events" class="btn-outline"><i class="fa-solid fa-compass"></i> Explore Events</a>
+    </div>
+
+  </div>
+</section>
+
+  <!-- About Section -->
+  <section id="about" style="padding: 80px 0; background: var(--navy-primary);">
+    <div class="container">
+      <h2 class="section-title">About Medhantra</h2>
+      <p class="section-subtitle">9 Events • 5 Knowledge Dimensions • One Unforgettable Journey</p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; text-align: center;">
+        <div style="background: var(--bg-card); padding: 30px; border-radius: 8px; border: 1px solid var(--border-color);">
+          <i class="fa-solid fa-brain" style="font-size: 2rem; color: var(--gold-accent); margin-bottom: 15px;"></i>
+          <h3>Wisdom Meets Tech</h3>
+          <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 10px;">Integrating ancient Indian intellectual heritage with modern computer science, AI, and cybersecurity.</p>
+        </div>
+        <div style="background: var(--bg-card); padding: 30px; border-radius: 8px; border: 1px solid var(--border-color);">
+          <i class="fa-solid fa-layer-group" style="font-size: 2rem; color: var(--cyan-bright); margin-bottom: 15px;"></i>
+          <h3>5 Dimensions</h3>
+          <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 10px;">Coding, Web Design, AI Automation, Cybersecurity, Core IT, Ideathon, Gaming, Treasure Hunt & Management.</p>
+        </div>
+        <div style="background: var(--bg-card); padding: 30px; border-radius: 8px; border: 1px solid var(--border-color);">
+          <i class="fa-solid fa-award" style="font-size: 2rem; color: var(--gold-accent); margin-bottom: 15px;"></i>
+          <h3>₹30,000 Cash Prizes</h3>
+          <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 10px;">Compete for prestigious trophies, certificates, and direct cash awards across all 9 tracks.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Events Section -->
+  <section id="events" style="padding: 80px 0;">
+    <div class="container">
+      <h2 class="section-title">Official Fest Events</h2>
+      <p class="section-subtitle">Select an event to view full details, prizes, rules, and member structure.</p>
+
+      <div class="events-grid" id="eventsGrid">
+        <!-- Event Cards injected via JS -->
+      </div>
+    </div>
+  </section>
+
+  <section id="timeline" style="padding: 80px 0; background: #060d1a;">
+  <div style="width: 90%; max-width: 1100px; margin: 0 auto;">
+    <h2 style="text-align: center; font-family: 'Cinzel', serif; font-size: 2.2rem; color: #ffd700; margin-bottom: 10px;">
+      Event Schedule & Timeline
+    </h2>
+    <p style="text-align: center; color: #8892b0; margin-bottom: 30px;">
+      October 16, 2026 | 9:00 AM – 5:00 PM | S-VYASA Sattva Global City Campus
+    </p>
+
+    
+
+    <!-- Vertical Line Timeline -->
+    <div class="timeline-v-container">
+      
+      <!-- Slot 1: Inauguration -->
+      <div class="timeline-v-item">
+        <div class="timeline-v-time">9:00 AM<br><span style="font-size: 0.75rem; color: #8892b0;">9:30 AM</span></div>
+        <div class="timeline-v-dot" style="border-color: #ffd700; box-shadow: 0 0 8px #ffd700;"></div>
+        <div class="timeline-v-content" style="border-color: #ffd700; background: rgba(255, 215, 0, 0.05);">
+          <h4 style="color: #ffd700;"><i class="fa-solid fa-ribbon"></i> Official Inauguration Ceremony</h4>
+          <p style="font-size: 0.88rem; color: #8892b0;">Venue: Seminar Hall (Common for all tracks) • Duration: 30 Mins</p>
+        </div>
+      </div>
+
+      <!-- Slot 2: Move to Venues -->
+      <div class="timeline-v-item">
+        <div class="timeline-v-time">9:30 AM<br><span style="font-size: 0.75rem; color: #8892b0;">9:45 AM</span></div>
+        <div class="timeline-v-dot"></div>
+        <div class="timeline-v-content" style="padding: 12px 20px;">
+          <h4 style="font-size: 0.95rem; color: #8892b0; margin: 0;"><i class="fa-solid fa-person-walking"></i> Move to Respective Event Venues (15 Mins)</h4>
+        </div>
+      </div>
+
+      <!-- Slot 3: Morning Track Events -->
+      <div class="timeline-v-item">
+        <div class="timeline-v-time">9:45 AM<br><span style="font-size: 0.75rem; color: #8892b0;">1:00 PM</span><br><span style="font-size: 0.7rem; color: #00f2fe;">3 hrs 15 mins</span></div>
+        <div class="timeline-v-dot"></div>
+        <div class="timeline-v-content">
+          <h4><i class="fa-solid fa-brain" style="color: #00f2fe;"></i> Morning Parallel Events</h4>
+          <div class="timeline-v-events-grid">
+            <div class="timeline-event-subcard">
+              <strong style="color: #fff; font-size: 0.9rem;">Capture The Flag</strong>
+              <div style="font-size: 0.8rem; color: #00f2fe;">RAKSA • Coding Lab</div>
+            </div>
+            <div class="timeline-event-subcard">
+              <strong style="color: #fff; font-size: 0.9rem;">Web Design & UI/UX</strong>
+              <div style="font-size: 0.8rem; color: #00f2fe;">SRSTI • Design/AI Lab</div>
+            </div>
+            <div class="timeline-event-subcard">
+              <strong style="color: #fff; font-size: 0.9rem;">Core IT Quiz</strong>
+              <div style="font-size: 0.8rem; color: #00f2fe;">JNANA • Quiz Hall</div>
+            </div>
+            <div class="timeline-event-subcard">
+              <strong style="color: #fff; font-size: 0.9rem;">BGMI Tournament</strong>
+              <div style="font-size: 0.8rem; color: #00f2fe;">BattleVerse • Conf. Hall</div>
+            </div>
+            <div class="timeline-event-subcard">
+              <strong style="color: #fff; font-size: 0.9rem;">Treasure Hunt</strong>
+              <div style="font-size: 0.8rem; color: #00f2fe;">MEDHA • Gaming Arena</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slot 4: Lunch Break -->
+      <div class="timeline-v-item">
+        <div class="timeline-v-time">1:00 PM<br><span style="font-size: 0.75rem; color: #8892b0;">2:00 PM</span></div>
+        <div class="timeline-v-dot" style="border-color: #2ed573; box-shadow: 0 0 8px #2ed573;"></div>
+        <div class="timeline-v-content" style="background: rgba(46, 213, 115, 0.08); border-color: rgba(46, 213, 115, 0.3);">
+          <h4 style="color: #2ed573; margin: 0;"><i class="fa-solid fa-utensils"></i> Lunch Break (1 Hour)</h4>
+        </div>
+      </div>
+
+      <!-- Slot 5: Afternoon Track Events -->
+      <div class="timeline-v-item">
+        <div class="timeline-v-time">2:00 PM<br><span style="font-size: 0.75rem; color: #8892b0;">4:30 PM</span><br><span style="font-size: 0.7rem; color: #00f2fe;">2 hrs 30 mins</span></div>
+        <div class="timeline-v-dot"></div>
+        <div class="timeline-v-content">
+          <h4><i class="fa-solid fa-laptop-code" style="color: #00f2fe;"></i> Afternoon Parallel Events</h4>
+          <div class="timeline-v-events-grid">
+            <div class="timeline-event-subcard">
+              <strong style="color: #fff; font-size: 0.9rem;">Relay Coding</strong>
+              <div style="font-size: 0.8rem; color: #00f2fe;">Decode • Coding Lab</div>
+            </div>
+            <div class="timeline-event-subcard">
+              <strong style="color: #fff; font-size: 0.9rem;">AI Automation (n8n)</strong>
+              <div style="font-size: 0.8rem; color: #00f2fe;">VANTRA • Design/AI Lab</div>
+            </div>
+            <div class="timeline-event-subcard">
+              <strong style="color: #fff; font-size: 0.9rem;">IT Manager</strong>
+              <div style="font-size: 0.8rem; color: #00f2fe;">NITI • Quiz Hall</div>
+            </div>
+            <div class="timeline-event-subcard">
+              <strong style="color: #fff; font-size: 0.9rem;">Ideathon & Pitch</strong>
+              <div style="font-size: 0.8rem; color: #00f2fe;">KALPANA • Conf. Hall</div>
+            </div>
+            <div class="timeline-event-subcard">
+              <strong style="color: #fff; font-size: 0.9rem;">Free Fire</strong>
+              <div style="font-size: 0.8rem; color: #00f2fe;">BattleVerse • Gaming Arena</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slot 6: Valedictory -->
+      <div class="timeline-v-item">
+        <div class="timeline-v-time">4:30 PM<br><span style="font-size: 0.75rem; color: #8892b0;">5:00 PM</span></div>
+        <div class="timeline-v-dot" style="border-color: #ffd700; box-shadow: 0 0 8px #ffd700;"></div>
+        <div class="timeline-v-content" style="border-color: #ffd700; background: rgba(255, 215, 0, 0.08);">
+          <h4 style="color: #ffd700;"><i class="fa-solid fa-trophy"></i> Valedictory & Prize Distribution</h4>
+          <p style="font-size: 0.88rem; color: #8892b0;">Venue: Seminar Hall (Common for all tracks) • Awarding ₹30,000 Cash Prizes</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <!-- Registration Section -->
+  <section id="register" style="padding: 80px 0; background: var(--cream-bg);">
+    <div class="container">
+      <h2 class="section-title">Event Registration</h2>
+       
+
+          <!-- Dynamic Teammates Container -->
+          <div id="teammatesContainer"></div>
+
+          <div style="margin-top: 25px; padding: 15px; background: rgba(138, 163, 47, 0.08); border-radius: 6px; display: flex; justify-content: space-between; align-items: center; justify-content: center; font-size: large; background-color: #00f2fe;">
+            <div>
+                <a href="https://forms.gle/inAedgwF9UcrbYzN9"></i> Register here</a>
+            </div>
+          
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal for Event Rules -->
+  <div class="modal" id="eventModal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeModal()">&times;</span>
+      <h3 id="modalTitle" style="color: var(--gold-accent); margin-bottom: 10px;">Event Title</h3>
+      <div id="modalBody" style="font-size: 0.9rem; color: var(--text-light); line-height: 1.7;"></div>
+    </div>
+  </div>
+
+  <!-- CONTACT & COORDINATORS SECTION -->
+<section id="contact" style="padding: 80px 0; background: #0a192f; border-top: 1px solid rgba(212, 175, 55, 0.2);">
+  <div style="width: 90%; max-width: 1200px; margin: 0 auto;">
+    
+    <!-- Section Header -->
+    <h2 style="text-align: center; font-family: 'Cinzel', serif; font-size: 2.2rem; color: #ffd700; margin-bottom: 10px;">
+      Contact Fest Coordinators
+    </h2>
+    <p style="text-align: center; color: #8892b0; margin-bottom: 50px;">
+      Have questions regarding events, rules, or registration? Reach out to our team.
+    </p>
+
+    <!-- Faculty & Student Coordinators Grid -->
+    <h3 style="font-family: 'Cinzel', serif; color: #00f2fe; margin-bottom: 20px; text-align: center;">
+      <i class="fa-solid fa-users-gear" style="margin-right: 8px;"></i> Organizing Committee
+    </h3>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; margin-bottom: 60px;">
+      
+      <!-- Coordinator Card 1 (Student Coordinator - Poster Mentioned) -->
+      <div class="coordinator-card">
+        <div class="coord-avatar">
+          <i class="fa-solid fa-user-graduate"></i>
+        </div>
+        <div class="coord-badge">Student Lead</div>
+        <h5 class="coord-name">Moksha B</h5>
+        <h5 class="coord-name">Mokshaprada</h5>
+        <h5 class="coord-name">Sathvika K C</h5>
+        <h5 class="coord-name">Lekhana H N</h5>
+        <br>
+        <p class="coord-role">Student Lead Coordinator</p>
+        <p class="coord-dept">School of Computer Science & Applications</p>
+        <div class="coord-contact-info">
+          <a href="tel:7259785746" class="coord-link"><i class="fa-solid fa-phone"></i> +91 72597 85746</a>
+          <a href="tel:6361781853" class="coord-link"><i class="fa-solid fa-phone"></i> +91 63617 81853</a>
+        </div>
+      </div>
+
+      <!-- Coordinator Card 2 (Student Coordinator - Poster Mentioned) -->
+      <div class="coordinator-card">
+        <div class="coord-avatar">
+          <i class="fa-solid fa-user-graduate"></i>
+        </div>
+        <div class="coord-badge">Faculty Co-ordinators</div>
+        <h4 class="coord-name">Dr.Divya M.O</h4>
+        <h4 class="coord-name">Dr.Geethanjali B</h4>
+        <p class="coord-role">Faculty Co-ordinators</p>
+        <p class="coord-dept">School of Computer Science & Applications</p>
+       
+      </div>
+
+      <!-- Coordinator Card 3 (Faculty Coordinator) -->
+      <div class="coordinator-card">
+        <div class="coord-avatar" style="border-color: #ffd700; color: #ffd700;">
+          <i class="fa-solid fa-chalkboard-user"></i>
+        </div>
+        <div class="coord-badge" style="background: rgba(255, 215, 0, 0.15); color: #ffd700;">Faculty Advisor</div>
+        <h4 class="coord-name">Dr.Sachin Sharma</h4>
+        <p class="coord-role">Dean</p>
+        <p class="coord-dept">Department of Computer Science &amp; Applications</p>
+        
+      </div>
+    </div>
+
+      <!-- Campus Location Details -->
+      <div style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <h3 style="color: #ffd700; font-family: 'Cinzel', serif; margin-bottom: 15px;">Campus Location</h3>
+          <p style="color: #e6f1ff; font-weight: 600; margin-bottom: 5px;">S-VYASA Deemed to be University</p>
+          <p style="color: #8892b0; font-size: 0.9rem; line-height: 1.6;">
+            School of Computer Science & Applications<br>
+            Sattva Global City Campus, RVCE Post,<br>
+            Mysore Road, Bengaluru, Karnataka – 560059
+          </p>
+        </div>
+
+        <div style="margin-top: 25px; padding: 15px; background: rgba(0, 242, 254, 0.08); border-radius: 8px; border: 1px solid rgba(0, 242, 254, 0.2);">
+          <div style="color: #00f2fe; font-weight: 600; font-size: 0.9rem; margin-bottom: 5px;"><i class="fa-solid fa-circle-info"></i> Help Desk Hours</div>
+          <p style="color: #8892b0; font-size: 0.85rem;">Available Monday – Saturday: 9:00 AM to 5:00 PM.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+  <footer>
+    <div class="container">
+      <p>S-VYASA Deemed to be University | School of Computer Science & Applications | S-TECSA</p>
+      <p style="margin-top: 5px;">Sattva Global City Campus, Bengaluru – 560059</p>
+      <p style="margin-top: 15px; font-size: 0.8rem; color: var(--gold-accent);">© 2026 MEDHANTRA. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+<script>
+  // Event Data Definition according to poster & fee sheet
+  const eventsData = [
+    { id: 'NITI', name: 'NITI (IT Manager)', size: '1 Person (Solo)', fee: 250, p1: 1000, p2: 500, desc: 'Individual managerial capability and leadership challenge testing corporate IT decision making.' },
+    { id: 'SRSTI', name: 'SRSTI (Web Design & UI/UX)', size: '2 Members', fee: 500, p1: 1400, p2: 800, desc: 'Craft modern, responsive, and aesthetically superior web design solutions under time constraints.' },
+    { id: 'VANTRA', name: 'VANTRA (AI Challenge - n8n)', size: '2 Members', fee: 500, p1: 1400, p2: 800, desc: 'Design intelligent workflow automation pipelines using AI models and n8n platform tools.' },
+    { id: 'RAKSA', name: 'RAKSA (Capture The Flag)', size: '2 Members', fee: 500, p1: 1400, p2: 800, desc: 'Cybersecurity hackathon involving web exploits, cryptography, and reverse engineering flags.' },
+    { id: 'JNANA', name: 'JNANA (Core IT Quiz)', size: '2 Members', fee: 500, p1: 1400, p2: 800, desc: 'Rapid-fire intellectual quiz testing computer science fundamentals, OS, networking, and tech history.' },
+    { id: 'KALPANA', name: 'KALPANA (Ideathon & Pitch)', size: '2-4 Members', fee: 500, p1: 1400, p2: 800, desc: 'Pitch innovative startup concepts solving real-world challenges to panel judges.' },
+    { id: 'Relay Coding', name: 'Relay Coding (Decode)', size: '4 Members', fee: 800, p1: 2800, p2: 1600, desc: 'Team speed coding challenge where members rotate sequentially without direct verbal communication.' },
+    { id: 'BattleVerse', name: 'BattleVerse / RANANATI (Gaming)', size: '4 Members', fee: 800, p1: 2800, p2: 1600, desc: 'High-stakes multiplayer squad LAN/Mobile tournament for title victory.' },
+    { id: 'MEDHA', name: 'MEDHA (Treasure Hunt)', size: '4 Members', fee: 800, p1: 2800, p2: 1600, desc: 'Campus-wide algorithmic clue solving, cryptographic puzzles, and physical physical/digital hunting.' }
+  ];
+
+  
+
+  // Render Event Cards
+  function renderEvents() {
+    const grid = document.getElementById('eventsGrid');
+    if (!grid) return;
+    grid.innerHTML = eventsData.map(ev => `
+      <div class="event-card">
+        <span class="event-badge">${ev.size}</span>
+        <h3>${ev.name}</h3>
+        <div class="event-fee">Registration Fee: ₹${ev.fee}</div>
+        <div class="prize-tag"><i class="fa-solid fa-trophy"></i> 1st: ₹${ev.p1} | 2nd: ₹${ev.p2}</div>
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 12px;">${ev.desc}</p>
+        <div class="event-actions">
+          <button onclick="showRules('${ev.id}')" class="btn-outline">Rules</button>
+          
+        </div>
+      </div>
+    `).join('');
+  }
+
+
+  function showRules(eventId) {
+    const ev = eventsData.find(e => e.id === eventId);
+    if (!ev) return;
+    document.getElementById('modalTitle').innerText = `${ev.name} – Rules & Details`;
+    document.getElementById('modalBody').innerHTML = `
+      <p><strong>Team Structure:</strong> ${ev.size}</p>
+      <p><strong>Registration Fee:</strong> ₹${ev.fee}</p>
+      <p><strong>1st Prize:</strong> ₹${ev.p1} | <strong>2nd Prize:</strong> ₹${ev.p2}</p>
+      <hr style="border-color: var(--border-color); margin: 15px 0;">
+      <p><strong>General Guidelines:</strong></p>
+      <ul style="margin-left: 20px; margin-top: 8px;">
+        <li>Participants must produce valid College ID cards upon registration verification.</li>
+        <li>Decisions made by official university judges are final and binding.</li>
+        <li>Malpractice or usage of unauthorized resources leads to instant disqualification.</li>
+        <li> <strong>For Rules and Regulations Refer Brochure.</strong> </li>
+      </ul>
+    `;
+    document.getElementById('eventModal').classList.add('active');
+  }
+
+  function closeModal() {
+    document.getElementById('eventModal').classList.remove('active');
+  }
+
+  
+  // Fixed Countdown Timer Logic
+  function startCountdown() {
+    const target = new Date("October 16, 2026 09:00:00").getTime();
+    setInterval(() => {
+      const now = new Date().getTime();
+      const diff = target - now;
+      if (diff < 0) return;
+
+      const daysEl = document.getElementById('days');
+      const hoursEl = document.getElementById('hours');
+      const minsEl = document.getElementById('mins');
+      const secsEl = document.getElementById('secs');
+
+      if (daysEl) daysEl.innerText = Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+      if (hoursEl) hoursEl.innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+      if (minsEl) minsEl.innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+      if (secsEl) secsEl.innerText = Math.floor((diff % (1000 * 60)) / 1000).toString().padStart(2, '0');
+    }, 1000);
+  }
+
+  // Initialize
+  window.onload = function() {
+    renderEvents();
+    startCountdown();
+
+    const regForm = document.getElementById('regForm');
+    if (regForm) {
+      regForm.addEventListener('submit', handleRegistration);
+    }
+  };
+  
+</script>
+</body>
+</html>
